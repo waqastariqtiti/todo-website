@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login </title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtTZ9KPIf8APKVaE5zMCpMKMJ7dgdIAnnTjQ&s" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <!-- textbar starts here -->
+      <div class="textBar">
+        <div class="sideLine"></div>
+        <div class="textB">
+          <h3 class="text">
+            login <br />
+            if you have <br />
+            any account
+          </h3>
+          <p class="pera">Don't have account ==> <a href="#" class="signup"> sign up</a></p>
+        </div>
+      </div>
+      <!-- loginbar starts here -->
+      <div class="loginBar">
+        <h2 class="login">login</h2>
+        <form action="" class="form">
+            <input type="text" placeholder="user name" class="email" id="email" />
+          <input type="email" placeholder="email" class="email" id="email" />
+          <input
+            type="password"
+            placeholder="password"
+            class="password"
+            id="password"
+          />
+          <a class="forgot">forgot password..</a>
+          <button class="button" id="submit">login</button>
+          <p class="haveAcc">
+            have an account? <b><a href="http://127.0.0.1:5500/todo-website/signup.html" class="sign">sign up</a></b>
+          </p>
+        </form>
+      </div>
+      <!-- end-->
+    </div>
+
+    <script src="index.js" type="module"></script>
+    <!-- <script src="fireBase.js" type="module"></script> -->
+  </body>
+</html>
