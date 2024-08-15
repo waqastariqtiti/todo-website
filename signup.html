@@ -6,9 +6,8 @@
     <title>sign up</title>
     <link rel="stylesheet" href="signup.css">
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtTZ9KPIf8APKVaE5zMCpMKMJ7dgdIAnnTjQ&s" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="output.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtTZ9KPIf8APKVaE5zMCpMKMJ7dgdIAnnTjQ&s" type="image/x-icon">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -16,25 +15,38 @@
         .h-120{
             height: 500px;
         }
+        .back{
+            background-color: skyblue; 
+        }
+        .blue{
+            color: skyblue;
+        }
+        .bor{
+            border-left: 2px solid skyblue;
+            border-right: 2px solid skyblue;
+        }
+        .bord{
+            border-color: skyblue;
+        }
     </style>
 </head>
-<body class="bg-sky-700">
+<body class="back">
 
-    <div class="flex items-center justify-around w-[90%] h-120 mx-16 my-24 bg-sky-500  ">
+    <div class=" main flex items-center justify-around w-[90%] h-120 mx-16 my-24 bg-white">
         <div class="textbar h-full w-[40%] flex items-center xs ">
-            <div class="line h-96 border-2 border-green-500 mx-9"></div>
-            <div class="text text-3xl font-bold text-green-500"><h3>Easy sign up <br> page of <br>html & css</h3></div>
+            <div class="line h-96 border-2 rounded-lg mx-9 bor"></div>
+            <div class="text text-3xl font-bold blue "><h3>sign up if <br> Don't have <br>any account?</h3></div>
         </div>
         <div class="signbar">
-            <h1 class="-mt-5 ml-20 text-3xl font-bold  text-green-500 ">sign up</h1>
+            <h1 class=" ml-20 text-3xl font-bold  blue ">sign up</h1>
             <form >
-                <input type="text" name="email" id="email"  placeholder="user name" class="mt-24 w-80 block h-10 rounded-lg border-2 border-green-300">
-                <input type="email" name="email" id="email"  placeholder="email" class="mt-24 w-80 block h-10 rounded-lg border-2 border-green-300">
-                <input type="password" name="password" id="password" placeholder="password" class="mt-4 w-80 h-10 rounded-lg border-2 border-green-300" >
-                <p><a href="#" class="no-underline text-green-500 hover:underline mt-10">forgot password</a></p>
-                <input type="submit" value="submit" id="sumbit"  class=" bg-green-500 mt-10 w-60 text-green-950 ml-10 h-8 rounded-3xl">
+                <input type="text" name="email" id="email"  placeholder="user name" class="mt-24 w-80 block h-10 rounded-lg border-2 bord">
+                <input type="email" name="email" id="email"  placeholder="email" class="mt-4 w-80 block h-10 rounded-lg border-2 bord">
+                <input type="password" name="password" id="password" placeholder="password" class="mt-4 w-80 h-10 rounded-lg border-2 bord" >
+                <p><a href="#" class="no-underline blue hover:underline mt-10">forgot password</a></p>
+                <input type="submit" value="submit" id="sumbit"  class=" blue mt-10 w-60 text-green-950 ml-10 h-8 rounded-3xl">
             </form>
-            <p class="mt-5 ml-20">have account? .!. <a href="./index.html" class="text-green-500 hover:underline">login</a>  .!.</p>
+            <p class="mt-5 ml-20">have account? .!. <a href="./index.html" class="blue hover:underline">login</a>  .!.</p>
         </div>
     </div>
     <script src="signup.js" type="module"></script>
