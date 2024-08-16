@@ -1,15 +1,19 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
-// Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBNVgxFlfzjNniDeOWfNGtixO2pQncLm74",
-  authDomain: "sign-up-60cb6.firebaseapp.com",
-  projectId: "sign-up-60cb6",
-  storageBucket: "sign-up-60cb6.appspot.com",
-  messagingSenderId: "687730009137",
-  appId: "1:687730009137:web:193c94ed0735b34fbc2110",
-  measurementId: "G-ME1CNCRT16",
+  apiKey: "AIzaSyD0eeQSG-_qpSg4i0V8vMsbMp-mFa9fz6A",
+  authDomain: "todo-web-c2500.firebaseapp.com",
+  projectId: "todo-web-c2500",
+  storageBucket: "todo-web-c2500.appspot.com",
+  messagingSenderId: "341838122470",
+  appId: "1:341838122470:web:a771493442dc6839631a27",
+  measurementId: "G-WDH5GX9P5K",
 };
 
 // Initialize Firebase
@@ -17,11 +21,17 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// Add event listener to the submit button
+// Add event listeners when the DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.getElementById("submit");
+  const loginButton = document.getElementById("login");
+
   if (submitButton) {
     submitButton.addEventListener("click", handlesign);
+  }
+
+  if (loginButton) {
+    loginButton.addEventListener("click", handleLogin);
   }
 });
 
@@ -64,5 +74,34 @@ function handlesign(event) {
       // Handle errors here
       console.error("Error signing in:", error);
       alert("Error signing in: " + error.message);
+    });
+}
+
+function handleLogin(event) {
+  event.preventDefault(); // Prevent the page from reloading
+
+  // Get values from input fields
+  const emailValue = document.getElementById("email").value.trim();
+  const passValue = document.getElementById("password").value.trim();
+
+  // Validation for empty input fields
+  if (!emailValue || !passValue) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  createUserWithEmailAndPassword(auth, emailValue, passValue)
+    .then((userCredential) => {
+      // User created successfully
+      console.log("User created:", userCredential.user);
+
+      // Clear input fields
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+    })
+    .catch((error) => {
+      // Handle errors here
+      console.error("Error signing up:", error);
+      alert("Error signing up: " + error.message);
     });
 }
