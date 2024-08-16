@@ -15,12 +15,29 @@
       .rounder {
         border-radius: 100px;
       }
+
+      .box {
+        transition: transform 0.5s ease;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      .box:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .mtm {
+        margin-top: 48px;
+      }
     </style>
   </head>
-  <body class="bg-sky-500">
+
+  <body class="bg-sky-400">
+    <!-- header start here -->
     <header>
       <div class="hmain bg-white flex justify-between items-center">
-        <div class="logo">
+        <div class="logo flex">
           <img
             src="./logo.jpeg"
             class="rounder ml-10 my-2"
@@ -28,26 +45,31 @@
             width="80px"
             alt="logo"
           />
+          <h1
+            class="mx-7 my-7 font-bold text-3xl font-sans text-center text-sky-500"
+          >
+            blue cloud To-do list
+          </h1>
         </div>
         <div class="links ml-10">
           <div class="flex items-center align-middle">
             <div
-              class="linked h-7 w-24 text-center bg-sky-500 mr-10 rounded-md"
+              class="linked h-7 w-24 text-center bg-sky-400 mr-10 rounded-md text-black box"
             >
               <a class=" " href="./home.html">home</a>
             </div>
             <div
-              class="linked h-7 w-24 text-center bg-sky-500 mr-10 rounded-md"
+              class="linked h-7 w-24 text-center bg-sky-400 mr-10 rounded-md text-white box"
             >
               <a class=" " href="./about.html">about</a>
             </div>
             <div
-              class="linked h-7 w-24 text-center bg-sky-500 mr-10 rounded-md"
+              class="linked h-7 w-24 text-center bg-sky-400 mr-10 rounded-md text-white box"
             >
               <a class=" " href="./contactUS.html">contactUS</a>
             </div>
             <div
-              class="linked h-7 w-24 text-center bg-sky-500 mr-28 rounded-md"
+              class="linked h-7 w-24 text-center bg-sky-400 mr-28 rounded-md text-white box"
             >
               <a class=" " href="./yourRecent.html">Recent list</a>
             </div>
@@ -55,31 +77,96 @@
         </div>
       </div>
     </header>
-    <main class="bg-white mx-80 h-96 w-[50%] mt-[8%]">
+    <!-- header end -->
+
+    <main class="items-center flex mt-1 ">
+      <img
+        src="./list.png"
+        height="200vh"
+        width="200vw"
+        alt=""
+        class="ml-[9%] mt-10 rounded-full"
+      />
+      <h1 class="font-bold text-3xl font-sans text-center text-white ml-9 ">Enter what you wanna do in the day</h1>
+    </main>
+    <!-- main bar -->
+    <main class="bg-white mx-80 h-96 w-[50%] mt-[0%] rounded-lg items-center">
+      <h1
+        class="inline-block font-bold text-3xl font-sans text-center text-sky-500 mx-[40%] mt-5"
+      >
+        To-do list
+      </h1>
       <div class="">
         <input
           type="text"
           placeholder="Enter what to-do"
           id="text"
-          class="ml-[35%] mt-10 w-60 rounded-md h-10 bg-sky-500 text-white text-center placeholder:text-white"
+          class="ml-[35%] mt-5 w-60 rounded-md h-10 bg-sky-400 text-white text-center placeholder:text-white"
         />
       </div>
 
       <button
         onclick="add()"
-        class="ml-[45%] mt-[1%] bg-sky-500 w-20 h-7 rounded-md"
+        class="ml-[46%] mt-[2%] bg-sky-800 w-20 h-7 rounded-md text-white"
       >
         add
       </button>
 
       <div
         id="list"
-        class="text-white ml-[5%] mt-[2%] bg-sky-500 w-[90%] h-48 rounded-md text-center overflow-x-auto "
+        class="text-white ml-[5%] mt-[1%] bg-sky-400 w-[90%] h-44 rounded-md text-center overflow-x-auto"
       >
-        <p class="bg-white text-sky-500 font-bold w-40 ml-[39%] mt-3 block rounded-md" >add your work</p>
-    </div>
-    <button id="restore" onclick="restore() " class="ml-[32%] mt-[1%] bg-sky-500 w-60 h-7 rounded-md" style="display: none;">Restore Recent value</button>
+        <p
+          class="bg-white text-sky-400 font-bold w-40 ml-[39%] mt-3 block rounded-md"
+        >
+          your works
+        </p>
+      </div>
+      <button
+        id="restore"
+        onclick="restore() "
+        class="ml-[32%] mt-[1%] bg-sky-400 w-60 h-7 rounded-md"
+        style="display: none"
+      >
+        Restore Recent value
+      </button>
     </main>
+    <!-- end -->
+    <!-- main 2nd bar -->
+    <div
+      class="main2 flex justify-around align-bottom items-baseline mtm bg-white mb-0 h-24"
+    >
+      <div class="signupBar bg-white w-96 h-16 rounded-lg">
+        <center class="mt-14">
+          <div
+            class="bg-sky-400 w-60 h-7 rounded-lg text-white flex justify-around box"
+          >
+            <h4 class="font-bold">don't have an account</h4>
+            <a
+              class="bg-sky-600 text-slate-200 font-bold rounded-lg hover:underline hover:text-white"
+              href="./signup.html"
+              >sign up</a
+            >
+          </div>
+        </center>
+      </div>
+      <div class="loginbar bg-white w-96 h-16 rounded-lg">
+        <center class="mt-14">
+          <div
+            class="bg-sky-400 w-60 h-7 rounded-lg text-white flex justify-between box"
+          >
+            <h4 class="ml-10 font-bold">have an account</h4>
+            <a
+              class="bg-sky-600 text-slate-200 font-bold rounded-lg hover:underline hover:text-white mr-2"
+              href="./index.html"
+              >login</a
+            >
+          </div>
+        </center>
+      </div>
+    </div>
+    <!-- end -->
     <script src="./home.js"></script>
+    <!-- code end -->
   </body>
 </html>

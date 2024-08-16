@@ -25,7 +25,7 @@ function deleteAdded(itemID) {
 function restore(itemID) {
   const item = document.getElementById(`addItem-${itemID}`);
   const restoreButton = document.getElementById(`restore`);
-  if (item) {
+  if (item.style.display = "none") {
     item.style.display = "inline";
     restoreButton.style.display = "none";
   }

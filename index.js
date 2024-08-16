@@ -21,8 +21,7 @@ const auth = getAuth(app);
 const button = document.getElementById("submit");
 button.addEventListener("click", handleLogin);
 
-function handleLogin(event) {
-  event.preventDefault();
+function handleLogin() {
   console.log("Button clicked, handling login");
   const emailValue = document.getElementById("email").value;
   const passValue = document.getElementById("password").value;
