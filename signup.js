@@ -1,8 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -18,34 +15,54 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-document.addEventListener("DOMContentLoaded", (event) => {
+// Add event listener to the submit button
+document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.getElementById("submit");
   if (submitButton) {
     submitButton.addEventListener("click", handlesign);
   }
 });
 
-function handlesign() {
+function handlesign(event) {
+  event.preventDefault(); // Prevent the page from reloading
+
+  // Get values from input fields
   const emailInput = document.getElementById("email");
+  const userNameInput = document.getElementById("userName");
   const passwordInput = document.getElementById("password");
 
-  if (emailInput && passwordInput) {
-    const emailvalue = emailInput.value;
-    const passwordvalue = passwordInput.value;
-
-    createUserWithEmailAndPassword(auth, emailvalue, passwordvalue)
-      .then((userCredential) => {
-        // Signed in
-        console.log("User created:", userCredential.user);
-        emailInput.value = ""; // Clear the input fields
-        passwordInput.value = "";
-      })
-      .catch((error) => {
-        console.error("Error signing up:", error);
-        alert("Error signing up: " + error.message); // Display error to the user
-      });
-  } else {
-    console.error("Email or password input is missing");
+  // Check if input fields exist and are non-empty
+  if (!emailInput || !userNameInput || !passwordInput) {
+    console.error("One or more input fields are missing.");
+    return;
   }
+
+  const emailvalue = emailInput.value.trim();
+  const userNamevalue = userNameInput.value.trim();
+  const passwordvalue = passwordInput.value.trim();
+
+  // Validation for empty input fields
+  if (!emailvalue || !userNamevalue || !passwordvalue) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  // Proceed with Google Sign-In
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // Successful sign-in
+      const user = result.user;
+      console.log("User signed in:", user);
+      // Clear input fields if needed
+      emailInput.value = "";
+      userNameInput.value = "";
+      passwordInput.value = "";
+    })
+    .catch((error) => {
+      // Handle errors here
+      console.error("Error signing in:", error);
+      alert("Error signing in: " + error.message);
+    });
 }
